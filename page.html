@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Golden Years Home - Premium Senior Living and Care Facility">
+    <meta name="author" content="heisssen">
+    <meta name="last-modified" content="2025-01-21 16:26:17">
+    <title>Golden Years Home - Premium Senior Living</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #2E3192;
+            --secondary-color: #1BFFFF;
+            --accent-color: #D4145A;
+            --dark-blue: #1a1b4b;
+            --light-blue: #e8f3ff;
+            --gradient-1: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            --gradient-2: linear-gradient(135deg, #2E3192, #1BFFFF);
+            --text-dark: #2C3E50;
+            --text-light: #ECF0F1;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: var(--text-dark);
+        }
+
+        /* Navigation Styles */
+        .navbar {
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.95) !important;
+        }
+
+        .navbar-scrolled {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 0.5rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color) !important;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section Styles */
+        .hero-section {
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            background-attachment: fixed;
+        }
+
+        .hero-overlay {
+            background: linear-gradient(
+                45deg,
+                rgba(46, 49, 146, 0.9),
+                rgba(27, 255, 255, 0.7)
+            );
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Card Styles */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Service Icon Styles */
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--light-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .service-icon {
+            background: var(--primary-color);
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        /* Facility Showcase Styles */
+        .facility-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            height: 300px;
+            cursor: pointer;
+        }
+
+        .facility-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .facility-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .facility-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+        }
+
+        /* Team Section Styles */
+        .team-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-card img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+        }
+
+        .price-card {
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      border: none;
+      background: white;
+      position: relative;
+      z-index: 1;
+      margin-top: 20px;
+      margin-bottom: 20px;
+  }
+
+  .price-card.featured {
+      transform: scale(1.05);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+      z-index: 2;
+      border: 2px solid var(--secondary-color);
+  }
+
+  .price-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+  }
+
+  .price-header {
+      background: var(--gradient-1);
+      padding: 2.5rem 2rem;
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+  }
+
+  .price-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+      z-index: 1;
+  }
+
+  .price-header h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 2;
+  }
+
+  .price-header .price {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 0;
+      position: relative;
+      z-index: 2;
+  }
+
+  .price-header .price-period {
+      font-size: 1rem;
+      opacity: 0.8;
+      position: relative;
+      z-index: 2;
+  }
+
+  .price-features {
+      padding: 2rem;
+  }
+
+  .price-features li {
+      padding: 0.75rem 0;
+      display: flex;
+      align-items: center;
+      color: var(--text-dark);
+  }
+
+  .feature-icon {
+      width: 24px;
+      height: 24px;
+      background: var(--light-blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      color: var(--primary-color);
+  }
+
+  .price-badge {
+      position: absolute;
+      top: 20px;
+      right: -35px;
+      transform: rotate(45deg);
+      background: var(--accent-color);
+      color: white;
+      padding: 5px 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      z-index: 3;
+  }
+
+  .btn-price {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 30px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+  }
+
+  .price-card:hover .btn-price {
+      background: var(--gradient-2);
+      color: white;
+      transform: translateY(-3px);
+  }
+
+
+  /* New Section Styles */
+.amenity-card {
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.amenity-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--light-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.event-card {
+    transition: all 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.event-date {
+    min-width: 60px;
+}
+
+.testimonial-card {
+    margin: 20px;
+    position: relative;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 1;
+}
+
+.carousel-control-prev {
+    left: -50px;
+}
+
+.carousel-control-next {
+    right: -50px;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background: var(--accent-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .carousel-control-prev,
+    .carousel-control-next {
+        display: none;
+    }
+
+    .testimonial-card {
+        margin: 10px;
+    }
+}
+
+        /* Button Styles */
+        .btn-custom {
+            background: var(--gradient-1);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(46, 49, 146, 0.3);
+            color: white;
+        }
+
+        /* FAQ Section Styles */
+        .accordion-item {
+            border: none;
+            margin-bottom: 15px;
+            border-radius: 10px !important;
+            overflow: hidden;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background: var(--gradient-1);
+            color: white;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: var(--dark-blue);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 90vh;
+            }
+
+            .facility-card {
+                height: 200px;
+            }
+
+            .price-card {
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-heart-pulse me-2"></i>
+                Golden Years Home
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#facilities">Facilities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#team">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pricing">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-custom ms-2" href="#contact">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-lg-8" data-aos="fade-right">
+                    <h1 class="display-3 text-white fw-bold mb-4">Welcome to Premium Senior Living</h1>
+                    <p class="lead text-white mb-5">Experience exceptional care and comfort in our luxury senior living community.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#contact" class="btn btn-custom btn-lg">Schedule a Tour</a>
+                        <a href="#services" class="btn btn-outline-light btn-lg">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-3" data-aos="fade-up">
+                    <div class="glass-card text-center">
+                        <h2 class="display-4 fw-bold text-primary">15+</h2>
+                        <p class="mb-0">Years Experience</p>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="glass-card text-center">
+                        <h2 class="display-4 fw-bold text-primary">200+</h2>
+                        <p class="mb-0">Happy Residents</p>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="glass-card text-center">
+                        <h2 class="display-4 fw-bold text-primary">50+</h2>
+                        <p class="mb-0">Medical Staff</p>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="glass-card text-center">
+                        <h2 class="display-4 fw-bold text-primary">24/7</h2>
+                        <p class="mb-0">Care Available</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Our Premium Services</h2>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="feature-card">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">
+                                <i class="bi bi-heart-pulse fs-2"></i>
+                            </div>
+                            <h5>24/7 Medical Care</h5>
+                            <p>Round-the-clock medical supervision by qualified professionals.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-card">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">
+                                <i class="bi bi-house-heart fs-2"></i>
+                            </div>
+                            <h5>Luxury Accommodations</h5>
+                            <p>Spacious, well-furnished rooms designed for comfort.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-card">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">
+                                <i class="bi bi-calendar-event fs-2"></i>
+                            </div>
+                            <h5>Activity Programs</h5>
+                            <p>Engaging daily activities and social events.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section id="facilities" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Our Facilities</h2>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="facility-card">
+                        <img src="https://images.unsplash.com/photo-1540518614846-7ded34c8068d?w=500&q=80" alt="Luxury Suite">
+                        <div class="facility-overlay">
+                            <h4>Luxury Suites</h4>
+                            <p>Spacious rooms with modern amenities</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                  <div class="facility-card">
+                        <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=500&q=80" alt="Garden">
+                        <div class="facility-overlay">
+                            <h4>Therapeutic Gardens</h4>
+                            <p>Peaceful outdoor spaces for relaxation</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="facility-card">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500&q=80" alt="Activity Center">
+                        <div class="facility-overlay">
+                            <h4>Activity Center</h4>
+                            <p>Modern spaces for social engagement</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Our Care Team</h2>
+            <div class="row g-4">
+                <div class="col-md-3" data-aos="fade-up">
+                    <div class="team-card">
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=300&q=80" alt="Doctor">
+                        <h5>Dr. Sarah Johnson</h5>
+                        <p class="text-muted">Medical Director</p>
+                        <div class="social-links">
+                            <a href="#" class="text-muted mx-2"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="text-muted mx-2"><i class="bi bi-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="team-card">
+                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=300&q=80" alt="Nurse">
+                        <h5>Emma Thompson</h5>
+                        <p class="text-muted">Head Nurse</p>
+                        <div class="social-links">
+                            <a href="#" class="text-muted mx-2"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="text-muted mx-2"><i class="bi bi-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="team-card">
+                        <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=300&q=80" alt="Activities">
+                        <h5>Michael Chen</h5>
+                        <p class="text-muted">Activities Director</p>
+                        <div class="social-links">
+                            <a href="#" class="text-muted mx-2"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="text-muted mx-2"><i class="bi bi-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="team-card">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=300&q=80" alt="Care">
+                        <h5>Lisa Anderson</h5>
+                        <p class="text-muted">Care Coordinator</p>
+                        <div class="social-links">
+                            <a href="#" class="text-muted mx-2"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="text-muted mx-2"><i class="bi bi-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Updated Pricing Section HTML -->
+  <section id="pricing" class="py-5 bg-light">
+      <div class="container">
+          <h2 class="text-center mb-2" data-aos="fade-up">Care Plans</h2>
+          <p class="text-center text-muted mb-5" data-aos="fade-up">Choose the perfect care plan for your loved ones</p>
+          <div class="row g-4 position-relative">
+              <!-- Standard Plan -->
+              <div class="col-md-4" data-aos="fade-up">
+                  <div class="price-card">
+                      <div class="price-header">
+                          <h3>Standard Care</h3>
+                          <div class="price">$3,500</div>
+                          <div class="price-period">per month</div>
+                      </div>
+                      <div class="price-features">
+                          <ul class="list-unstyled">
+                              <li>
+                                  <div class="feature-icon">
+                                      <i class="bi bi-check-lg"></i>
+                                  </div>
+                                  24/7 Basic Care Support
+                              </li>
+                              <li>
+                                  <div class="feature-icon">
+                                      <i class="bi bi-check-lg"></i>
+                                  </div>
+                                  Private Comfortable Room
+                              </li>
+                              <li>
+                                  <div class="feature-icon">
+                                      <i class="bi bi-check-lg"></i>
+                                  </div>
+                                  Three Nutritious Meals Daily
+                              </li>
+                              <li>
+                                  <div class="feature-icon">
+                                      <i class="bi bi-check-lg"></i>
+                                  </div>
+                                  Basic Activities Program
+                              </li>
+                              <li>
+                                  <div class="feature-icon">
+                                      <i class="bi bi-check-lg"></i>
+                                  </div>
+                                  Weekly Housekeeping
+                              </li>
+                          </ul>
+                          <a href="#contact" class="btn btn-custom btn-price mt-4">Get Started</a>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Premium Plan -->
+              <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                  <div class="price-card featured">
+                      <div class="price-badge">Popular</div>
+                      <div class="price-header">
+                          <h3>Premium Care</h3>
+                          <div class="price">$4,500</div>
+                          <div class="price-period">per month</div>
+                      </div>
+                      <div class="price-features">
+                          <ul class="list-unstyled">
+                              <li>
+                                  <div class="feature-icon">
+                                      <i class="bi bi-check-lg"></i>
+                                  </div>
+                                  All Standard Features
+                              </li>
+                              <li>
+                                  <div class="feature-icon">
+                                      <i class="bi bi-check-lg"></i>
+                                  </div>
+                                  Personalized Care Plan
+                              </li>
+                              <li>
+                                  <div class="feature-icon">
+                                      <i class="bi bi-check-lg"></i>
+                                  </div>
+                                  Weekly Therapy Sessions
+                              </li>
+                              <li>
+                                  <div class="feature-icon">
+                                      <i class="bi bi-check-lg"></i>
+                                  </div>
+                                  Premium Activity Access
+                              </li>
+                              <li>
+                                  <div class="feature-icon">
+                                      <i class="bi bi-check-lg"></i>
+                                  </div>
+                                  Daily Room Service
+                              </li>
+                          </ul>
+                          <a href="#contact" class="btn btn-custom btn-price mt-4">Get Started</a>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Luxury Plan -->
+              <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                  <div class="price-card">
+                      <div class="price-header">
+                          <h3>Luxury Care</h3>
+                          <div class="price">$5,500</div>
+                          <div class="price-period">per month</div>
+                      </div>
+                      <div class="price-features">
+                          <ul class="list-unstyled">
+                              <li>
+                                  <div class="feature-icon">
+                                      <i class="bi bi-check-lg"></i>
+                                  </div>
+                                  All Premium Features
+                              </li>
+                              <li>
+                                  <div class="feature-icon">
+                                      <i class="bi bi-check-lg"></i>
+                                  </div>
+                                  Luxury Suite Accommodation
+                              </li>
+                              <li>
+                                  <div class="feature-icon">
+                                      <i class="bi bi-check-lg"></i>
+                                  </div>
+                                  24/7 Personal Assistant
+                              </li>
+                              <li>
+                                  <div class="feature-icon">
+                                      <i class="bi bi-check-lg"></i>
+                                  </div>
+                                  Private Family Events
+                              </li>
+                              <li>
+                                  <div class="feature-icon">
+                                      <i class="bi bi-check-lg"></i>
+                                  </div>
+                                  Concierge Services
+                              </li>
+                          </ul>
+                          <a href="#contact" class="btn btn-custom btn-price mt-4">Get Started</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Add these sections before the Contact section -->
+
+<!-- Virtual Tour Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-2" data-aos="fade-up">Virtual Tour</h2>
+        <p class="text-center text-muted mb-5" data-aos="fade-up">Experience our facility from the comfort of your home</p>
+        <div class="row align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="position-relative rounded-4 overflow-hidden shadow-lg">
+                    <!-- Replace with your actual video ID -->
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/your-video-id" title="Virtual Tour" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="ps-lg-5 mt-4 mt-lg-0">
+                    <h3 class="mb-4">Take an Interactive Tour</h3>
+                    <p class="lead text-muted">Explore our facilities virtually and discover the comfort and luxury we offer.</p>
+                    <div class="mt-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="feature-icon me-3">
+                                <i class="bi bi-camera-video"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-0">HD Quality Tour</h5>
+                                <small class="text-muted">Experience crystal clear virtual visits</small>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="feature-icon me-3">
+                                <i class="bi bi-arrows-fullscreen"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-0">360° Views</h5>
+                                <small class="text-muted">Immersive panoramic experiences</small>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="feature-icon me-3">
+                                <i class="bi bi-person-video3"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-0">Live Guide Available</h5>
+                                <small class="text-muted">Personal guided virtual tours</small>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn btn-custom mt-4">Schedule a Live Tour</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Amenities Section -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-2" data-aos="fade-up">Premium Amenities</h2>
+        <p class="text-center text-muted mb-5" data-aos="fade-up">Discover our world-class facilities and services</p>
+        <div class="row g-4">
+            <div class="col-md-3" data-aos="fade-up">
+                <div class="amenity-card text-center p-4 glass-card hover-float">
+                    <div class="amenity-icon mb-3">
+                        <i class="bi bi-tree h1 text-primary"></i>
+                    </div>
+                    <h5>Landscaped Gardens</h5>
+                    <p class="text-muted">Beautiful outdoor spaces for relaxation and activities</p>
+                </div>
+            </div>
+            <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="amenity-card text-center p-4 glass-card hover-float">
+                    <div class="amenity-icon mb-3">
+                        <i class="bi bi-cup-hot h1 text-primary"></i>
+                    </div>
+                    <h5>Gourmet Dining</h5>
+                    <p class="text-muted">Restaurant-style dining with chef-prepared meals</p>
+                </div>
+            </div>
+            <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+                <div class="amenity-card text-center p-4 glass-card hover-float">
+                    <div class="amenity-icon mb-3">
+                        <i class="bi bi-heart-pulse h1 text-primary"></i>
+                    </div>
+                    <h5>Wellness Center</h5>
+                    <p class="text-muted">Modern fitness and therapy facilities</p>
+                </div>
+            </div>
+            <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="amenity-card text-center p-4 glass-card hover-float">
+                    <div class="amenity-icon mb-3">
+                        <i class="bi bi-film h1 text-primary"></i>
+                    </div>
+                    <h5>Entertainment</h5>
+                    <p class="text-muted">Movie theater and recreation rooms</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Events & Activities Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-2" data-aos="fade-up">Events & Activities</h2>
+        <p class="text-center text-muted mb-5" data-aos="fade-up">Engaging programs for an active lifestyle</p>
+        <div class="row g-4">
+            <div class="col-lg-6" data-aos="fade-up">
+                <div class="event-card p-4 glass-card">
+                    <div class="d-flex align-items-center">
+                        <div class="event-date text-center me-4">
+                            <h3 class="mb-0 text-primary">25</h3>
+                            <small class="text-muted">JAN</small>
+                        </div>
+                        <div>
+                            <h5>Art & Craft Workshop</h5>
+                            <p class="mb-0 text-muted">10:00 AM - Creative expression session with local artists</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="event-card p-4 glass-card">
+                    <div class="d-flex align-items-center">
+                        <div class="event-date text-center me-4">
+                            <h3 class="mb-0 text-primary">27</h3>
+                            <small class="text-muted">JAN</small>
+                        </div>
+                        <div>
+                            <h5>Music Therapy Session</h5>
+                            <p class="mb-0 text-muted">2:00 PM - Relaxing musical afternoon with professionals</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonial Carousel Section -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-2" data-aos="fade-up">What Families Say</h2>
+        <p class="text-center text-muted mb-5" data-aos="fade-up">Real experiences from our community members</p>
+        <div class="row justify-content-center">
+            <div class="col-lg-8" data-aos="fade-up">
+                <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="testimonial-card text-center p-5 glass-card">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&q=80"
+                                     alt="Testimonial"
+                                     class="rounded-circle mb-4"
+                                     style="width: 100px; height: 100px; object-fit: cover;">
+                                <p class="lead mb-4">"The care and attention my mother receives here is exceptional. The staff truly goes above and beyond."</p>
+                                <h5>Robert Johnson</h5>
+                                <p class="text-muted mb-0">Family Member</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="testimonial-card text-center p-5 glass-card">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&q=80"
+                                     alt="Testimonial"
+                                     class="rounded-circle mb-4"
+                                     style="width: 100px; height: 100px; object-fit: cover;">
+                                <p class="lead mb-4">"Moving our father here was the best decision we made. He's happier and more active than ever."</p>
+                                <h5>Sarah Williams</h5>
+                                <p class="text-muted mb-0">Resident's Daughter</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8" data-aos="fade-up">
+                    <div class="contact-form glass-card">
+                        <h2 class="text-center mb-4">Schedule a Visit</h2>
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Your Name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" placeholder="Your Email" required>
+                                </div>
+                                <div class="col-12">
+                                    <input type="tel" class="form-control" placeholder="Phone Number" required>
+                                </div>
+                                <div class="col-12">
+                                    <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button type="submit" class="btn btn-custom btn-lg">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Golden Years Home</h5>
+                    <p>Creating a loving environment for seniors since 2010.</p>
+                    <div class="social-links mt-4">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="text-white">Home</a></li>
+                        <li><a href="#services" class="text-white">Services</a></li>
+                        <li><a href="#facilities" class="text-white">Facilities</a></li>
+                        <li><a href="#pricing" class="text-white">Pricing</a></li>
+                        <li><a href="#contact" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Info</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-geo-alt me-2"></i>123 Senior Care Lane, CA 90210</li>
+                        <li><i class="bi bi-telephone me-2"></i>(555) 123-4567</li>
+                        <li><i class="bi bi-envelope me-2"></i>info@goldenyearshome.com</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-0">© 2025 Golden Years Home. All rights reserved.</p>
+                    <p class="small text-muted mt-2">Last updated: 2025-01-21 16:27:54 UTC by heisssen</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
